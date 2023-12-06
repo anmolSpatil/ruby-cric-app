@@ -1,0 +1,28 @@
+default: &default
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: CricDummy
+  username: postgres
+  password: system
+  host: localhost
+  port: 5432
+
+test:
+  <<: *default
+  database: CricDummy_test
+  username: postgres
+  password: system
+  host: localhost
+  port: 5432
+
+production:
+  <<: *default
+  database: CricDummy_production
+  username: postgres
+  password: system
+  host: localhost
+  port: 5432
